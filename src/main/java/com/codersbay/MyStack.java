@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.EmptyStackException;
 import java.util.List;
 
-public class Stack<T> {
+public class MyStack<T> {
     private List<T> stack;
 
-    public Stack() {
+    public MyStack() {
         this.stack = new ArrayList<T>();
     }
 
@@ -15,8 +15,6 @@ public class Stack<T> {
         return stack.size();
     }
 
-    // returniert das letzte Element im Stack und löscht es vom Stack
-    //   wirft eine StackEmptyException falls der Stack leer ist
     public T pop() {
         if (stack.size() > 0) {
             T item = stack.get(stack.size() - 1);
@@ -27,8 +25,6 @@ public class Stack<T> {
         }
     }
 
-    //  returniert das letzte Element im Stack, lässt den Stack aber unverändert
-    //  wirft eine StackEmptyException falls der Stack leer ist*/
     public T peek() {
         if (stack.size() > 0) {
             T item = stack.get(stack.size() - 1);
@@ -47,7 +43,7 @@ public class Stack<T> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Stack<?> stack1 = (Stack<?>) o;
+        MyStack<?> stack1 = (MyStack<?>) o;
 
         return stack != null ? stack.equals(stack1.stack) : stack1.stack == null;
     }
@@ -61,8 +57,5 @@ public class Stack<T> {
     public String toString() {
         return "" + stack;
     }
-    // Teste deine Implementierung ausführlich mit Unit Tests. Verwende mindestens
-    // einen MyStack, MyStack und MyStack. Bill darf dabei eine ganz simple Klasse
-    // zur Repräsentation einer Rechnung sein.
 
 }

@@ -3,7 +3,7 @@ package com.codersbay;
 public class Main {
 
     public static void main(String[] args) {
-        Stack<Integer> stack = new Stack<Integer>();
+        MyStack<Integer> stack = new MyStack<Integer>();
         stack.push(5);
         stack.push(3);
         stack.push(6);
