@@ -1,11 +1,11 @@
 package com.codersbay;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.EmptyStackException;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class MyStackTest {
 
     @Test
+    @DisplayName("Check for EmptyStackException when we try to peek an empty Stack")
     void checkPeekForEmptyStackException() {
         assertThrows(EmptyStackException.class, () -> {
             new MyStack<Integer>().peek();
@@ -20,6 +21,7 @@ class MyStackTest {
     }
 
     @Test
+    @DisplayName("Check for EmptyStackException when we try to pop an empty Stack")
     void checkPopForEmptyStackException() {
         assertThrows(EmptyStackException.class, () -> {
             new MyStack<Integer>().pop();
@@ -27,6 +29,7 @@ class MyStackTest {
     }
 
     @Test
+    @DisplayName("Check the length method")
     void lengthTest() {
         MyStack<Integer> stack = new MyStack<Integer>();
         stack.push(5);
@@ -38,6 +41,7 @@ class MyStackTest {
     }
 
     @Test
+    @DisplayName("Check whether the pop method returns the last entry and delete it")
     void popTest() {
         MyStack<String> stack = new MyStack<String>();
         stack.push("monday");
@@ -51,6 +55,7 @@ class MyStackTest {
     }
 
     @Test
+    @DisplayName("Check whether the peek method returns the last entry of the Queue")
     void peekTest() {
         MyStack<Boolean> stack = new MyStack<Boolean>();
         stack.push(true);
@@ -58,7 +63,6 @@ class MyStackTest {
         stack.push(false);
         stack.push(true);
 
-        List<Boolean> testStack = Arrays.asList(true, true, false, true);
-        assertEquals(testStack.toString(), stack.toString());
+        assertEquals(true, stack.peek());
     }
 }
