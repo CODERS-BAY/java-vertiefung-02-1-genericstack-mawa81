@@ -64,5 +64,34 @@ class MyStackTest {
         stack.push(true);
 
         assertEquals(true, stack.peek());
+
+        assertEquals(new ArrayList<Boolean>(Arrays.asList(true, true, false, true)).toString(), stack.toString());
+    }
+
+    @Test
+    @DisplayName("Check whether push and pop is running correct")
+    void pushAndPopAllElementsTest() {
+        MyStack<Integer> stack = new MyStack<Integer>();
+        stack.push(5);
+        stack.push(3);
+        stack.push(6);
+        stack.push(9);
+
+        assertEquals(9, stack.pop());
+        assertEquals(new ArrayList<Integer>(Arrays.asList(5, 3, 6)).toString(), stack.toString());
+
+        assertEquals(6, stack.pop());
+        assertEquals(new ArrayList<Integer>(Arrays.asList(5, 3)).toString(), stack.toString());
+
+        assertEquals(3, stack.pop());
+        assertEquals(new ArrayList<Integer>(Arrays.asList(5)).toString(), stack.toString());
+
+        assertEquals(5, stack.pop());
+        assertEquals(new ArrayList<Integer>(Arrays.asList()).toString(), stack.toString());
+
+        assertThrows(EmptyStackException.class, () -> {
+            stack.pop();
+        });
+
     }
 }

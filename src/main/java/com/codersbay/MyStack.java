@@ -26,7 +26,7 @@ public class MyStack<T> {
     }
 
     public T peek() {
-        if (stack.size() > 0) {
+        if (!stack.isEmpty()) {
             T item = stack.get(stack.size() - 1);
             return item;
         } else {
